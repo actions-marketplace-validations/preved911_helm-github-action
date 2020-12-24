@@ -1,6 +1,6 @@
-name: Deliverybot Helm Action
-description: Deploys a helm chart
-author: deliverybot
+name: Helm Github Action
+description: Patched deliverybot/helm
+author: preved911
 icon: box
 color: gray-dark
 inputs:
