@@ -211,12 +211,12 @@ async function run() {
     if (dryRun) args.push("--dry-run");
     if (appName) args.push(`--set=app.name=${appName}`);
     if (version) {
-      if (fs.existsSync("./Chart.yaml")) {
-        var chartContent = fs.readFileSync("./Chart.yaml", "utf8");
+      if (fs.existsSync(`${chart}/Chart.yaml`)) {
+        var chartContent = fs.readFileSync(`${chart}/Chart.yaml`, "utf8");
         var chartData = yaml.safeLoad(chartContent);
-        chartData.version = String(version)
+        chartData.appVersion = String(version)
         chartContent = yaml.safeDump(chartData)
-        fs.writeFileSync('./Chart.yaml', chartContent, 'utf8');
+        fs.writeFileSync(`${chart}/Chart.yaml`, chartContent, 'utf8');
       }
 
       args.push(`--set=app.version=${version}`);
